@@ -45,7 +45,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // backgroundColor: Constants.lightgrey,
         appBar: AppBar(
           title: const Text("Welcome to school"),
           titleTextStyle: TextStyle(
@@ -53,96 +52,116 @@ class _HomePageState extends State<HomePage> {
               fontSize: Constants.headerSize,
               fontWeight: FontWeight.bold),
         ),
-        body: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Center(
-                    child: Container(
-                      margin: const EdgeInsets.all(20),
-                      child: Image.asset(
-                        Constants.logoImage,
-                        height: 300,
-                        width: 300,
-                      ),
+        body: Container(
+          height: MediaQuery.of(context).size.height * 1,
+          width: MediaQuery.of(context).size.width * 1,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(Constants.bgImage), fit: BoxFit.fill)),
+          child: SingleChildScrollView(
+            child: Stack(
+              children: <Widget>[
+                // Column(
+                //   children: <Widget>[
+                //     Center(
+                //       child: Container(
+                //         margin: const EdgeInsets.all(20),
+                //         child: Image.asset(
+                //           Constants.logoImage,
+                //           height: 300,
+                //           width: 300,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 1,
+                  width: MediaQuery.of(context).size.width * 1,
+                  color: Colors.black26,
+                ),
+                Center(
+                  child: Container(
+                    margin: const EdgeInsets.all(20),
+                    child: Image.asset(
+                      Constants.logoImage1,
+                      height: 300,
+                      width: 300,
                     ),
                   ),
-                ],
-              ),
-              // Container(
-              //   height: MediaQuery.of(context).size.height * 1,
-              //   color: Colors.black45,
-              // ),
-              Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.5,
                 ),
-                child: Column(
-                  children: [
-                    GestureDetector(
-                      onTap: () async {
-                        const url = 'https://dpsnad.web2visual.com/site/userLogin';
-                        if (await canLaunchUrl(Uri.parse(url))) {
-                          await launchUrl(
-                            Uri.parse(url),
-                            mode: LaunchMode.inAppWebView,
-                          );
-                        } else {
-                          throw 'Could not launch $url';
-                        }
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.all(20),
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        height: Constants.registrationTextFieldHeight,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: Constants.dpsColor,
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(30))),
-                        child: Text(
-                          'Student / Parent',
-                          style: TextStyle(
-                              color: Constants.buttonTextColor,
-                              fontSize: Constants.loginBtnTextSize),
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.5,
+                  ),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () async {
+                          const url =
+                              'https://dpsnad.web2visual.com/site/userLogin';
+                          if (await canLaunchUrl(Uri.parse(url))) {
+                            await launchUrl(
+                              Uri.parse(url),
+                              mode: LaunchMode.inAppWebView,
+                            );
+                          } else {
+                            throw 'Could not launch $url';
+                          }
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(20),
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          height: Constants.registrationTextFieldHeight,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Constants.dpsColor,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(30))),
+                          child: Text(
+                            'Student / Parent',
+                            style: TextStyle(
+                                color: Constants.buttonTextColor,
+                                fontSize: Constants.loginBtnTextSize),
+                          ),
                         ),
                       ),
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        const url = 'https://dpsnad.web2visual.com/site/login';
-                        if (await canLaunchUrl(Uri.parse(url))) {
-                        await launchUrl(
-                        Uri.parse(url),
-                        mode: LaunchMode.inAppWebView,
-                        );
-                        } else {
-                        throw 'Could not launch $url';
-                        }
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.all(20),
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        height: Constants.registrationTextFieldHeight,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                            color: Constants.dpsColor,
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(30))),
-                        child: Text(
-                          'Administration',
-                          style: TextStyle(
-                              color: Constants.buttonTextColor,
-                              fontSize: Constants.loginBtnTextSize),
+                      GestureDetector(
+                        onTap: () async {
+                          const url =
+                              'https://dpsnad.web2visual.com/site/login';
+                          if (await canLaunchUrl(Uri.parse(url))) {
+                            await launchUrl(
+                              Uri.parse(url),
+                              mode: LaunchMode.inAppWebView,
+                            );
+                          } else {
+                            throw 'Could not launch $url';
+                          }
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(20),
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          height: Constants.registrationTextFieldHeight,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: Constants.dpsColor,
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(30))),
+                          child: Text(
+                            'Administration',
+                            style: TextStyle(
+                                color: Constants.buttonTextColor,
+                                fontSize: Constants.loginBtnTextSize),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         )
         /* Column(

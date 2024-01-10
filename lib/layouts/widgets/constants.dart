@@ -124,10 +124,11 @@ class Constants {
   static Color buttonTextColor = Colors.white;
   static Color greenAccent = Colors.greenAccent;
   static Color blueGrey = Colors.blueGrey;
-  static String logoImage = "assets/images/dps_logo.jpg";
-  static String splashImage = "assets/images/logo.jpg";
+  static String logoImage = "assets/images/dps_logo.png";
+  static String logoImage1 = "assets/images/dps.jpg";
+  static String splashImage = "assets/images/logo.png";
   static String ballImage = "assets/images/ball.png";
-  static String bgImage = "assets/images/bgImage.png";
+  static String bgImage = "assets/images/bg_img.jpg";
   static String tncbgImage = "assets/images/tncbgImage.png";
   static String defaultUserImage = "assets/images/user.jpg";
   static String successImage = "assets/images/congratulations.png";
