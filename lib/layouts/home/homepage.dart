@@ -1,6 +1,8 @@
+import 'package:dpsnad/layouts/inappwebview/inappwebview.dart';
 import 'package:dpsnad/layouts/widgets/constants.dart';
 import 'package:dpsnad/layouts/widgets/responsive.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -46,7 +48,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Welcome to school"),
+          title: const Text("Welcome to DPS-NAD"),
           titleTextStyle: TextStyle(
               color: Constants.dpsColor,
               fontSize: Constants.headerSize,
@@ -58,110 +60,97 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(Constants.bgImage), fit: BoxFit.fill)),
-          child: SingleChildScrollView(
-            child: Stack(
-              children: <Widget>[
-                // Column(
-                //   children: <Widget>[
-                //     Center(
-                //       child: Container(
-                //         margin: const EdgeInsets.all(20),
-                //         child: Image.asset(
-                //           Constants.logoImage,
-                //           height: 300,
-                //           width: 300,
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 1,
-                  width: MediaQuery.of(context).size.width * 1,
-                  color: Colors.black26,
+          child: Stack(
+            children: <Widget>[
+              Container(
+                height: MediaQuery.of(context).size.height * 1,
+                width: MediaQuery.of(context).size.width * 1,
+                color: Colors.black54,
+              ),
+              Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.25,
+                  ),
+                  margin: const EdgeInsets.all(20),
+                  child: Image.asset(
+                    Constants.logoImage1,
+                  ),
                 ),
-                Center(
-                  child: Container(
-                    margin: const EdgeInsets.all(20),
-                    child: Image.asset(
-                      Constants.logoImage1,
-                      height: 300,
-                      width: 300,
+              ),
+              Container(
+                alignment: Alignment.center,
+                margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.62,
+                ),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () async {
+                        String headerTitle =
+                            "Welcome to DPS-NAD Student / Parent Portal";
+                        const url =
+                            'https://dpsnad.web2visual.com/site/userLogin';
+                        Get.to(() => const InAppWebViewHome(), arguments: [
+                          url.toString(),
+                          headerTitle.toString()
+                        ]);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(20),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: Constants.registrationTextFieldHeight,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Constants.dpsColor,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(30)),
+                            border: Border.all(color: Colors.orange, width: 2)),
+                        child: Text(
+                          'Student / Parent',
+                          style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w400,
+                              color: Constants.buttonTextColor,
+                              fontSize: Constants.loginBtnTextSize),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.5,
-                  ),
-                  child: Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () async {
-                          const url =
-                              'https://dpsnad.web2visual.com/site/userLogin';
-                          if (await canLaunchUrl(Uri.parse(url))) {
-                            await launchUrl(
-                              Uri.parse(url),
-                              mode: LaunchMode.inAppWebView,
-                            );
-                          } else {
-                            throw 'Could not launch $url';
-                          }
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.all(20),
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: Constants.registrationTextFieldHeight,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Constants.dpsColor,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(30))),
-                          child: Text(
-                            'Student / Parent',
-                            style: TextStyle(
-                                color: Constants.buttonTextColor,
-                                fontSize: Constants.loginBtnTextSize),
-                          ),
+                    GestureDetector(
+                      onTap: () async {
+                        String headerTitle =
+                            "Welcome to DPS-NAD Administration Portal";
+                        const url = 'https://dpsnad.web2visual.com/site/login';
+                        Get.to(() => const InAppWebViewHome(), arguments: [
+                          url.toString(),
+                          headerTitle.toString()
+                        ]);
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(20),
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: Constants.registrationTextFieldHeight,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: Constants.dpsColor,
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(30)),
+                            border: Border.all(color: Colors.orange, width: 2)),
+                        child: Text(
+                          'Administration',
+                          style: TextStyle(
+                            fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.w400,
+                              color: Constants.buttonTextColor,
+                              fontSize: Constants.loginBtnTextSize),
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () async {
-                          const url =
-                              'https://dpsnad.web2visual.com/site/login';
-                          if (await canLaunchUrl(Uri.parse(url))) {
-                            await launchUrl(
-                              Uri.parse(url),
-                              mode: LaunchMode.inAppWebView,
-                            );
-                          } else {
-                            throw 'Could not launch $url';
-                          }
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.all(20),
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: Constants.registrationTextFieldHeight,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Constants.dpsColor,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(30))),
-                          child: Text(
-                            'Administration',
-                            style: TextStyle(
-                                color: Constants.buttonTextColor,
-                                fontSize: Constants.loginBtnTextSize),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         )
         /* Column(
