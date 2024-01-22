@@ -125,8 +125,8 @@ class Constants {
   static Color greenAccent = Colors.greenAccent;
   static Color blueGrey = Colors.blueGrey;
   static String logoImage = "assets/images/dps_logo.png";
-  static String logoImage1 = "assets/images/dps.jpg";
-  static String splashImage = "assets/images/logo.png";
+  static String logoImage1 = "assets/images/dpsnad_new.jpeg";
+  static String splashImage = "assets/images/splash_logo.jpg";
   static String ballImage = "assets/images/ball.png";
   static String bgImage = "assets/images/bg_img.jpg";
   static String tncbgImage = "assets/images/tncbgImage.png";

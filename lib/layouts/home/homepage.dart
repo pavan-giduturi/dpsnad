@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 alignment: Alignment.topCenter,
                 child: Container(
                   padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.25,
+                    top: MediaQuery.of(context).size.height * 0.1,
                   ),
                   margin: const EdgeInsets.all(20),
                   child: Image.asset(
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                         String headerTitle =
                             "Welcome to DPS-NAD Student / Parent Portal";
                         const url =
-                            'https://dpsnad.web2visual.com/site/userLogin';
+                            'https://portal.dpsnad.org.in/site/userLogin';
                         Get.to(() => const InAppWebViewHome(), arguments: [
                           url.toString(),
                           headerTitle.toString()
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () async {
                         String headerTitle =
                             "Welcome to DPS-NAD Administration Portal";
-                        const url = 'https://dpsnad.web2visual.com/site/login';
+                        const url = 'https://portal.dpsnad.org.in/site/login';
                         Get.to(() => const InAppWebViewHome(), arguments: [
                           url.toString(),
                           headerTitle.toString()

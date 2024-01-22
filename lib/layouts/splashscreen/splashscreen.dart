@@ -60,9 +60,9 @@ class _SplashScreenState extends State<SplashScreen>
                         Constants.splashImage,
                       ),
                       SizedBox(height: Constants.defaultPadding,),
-                      Image.asset(
-                        Constants.logoImage,
-                      ),
+                      // Image.asset(
+                      //   Constants.logoImage,
+                      // ),
                     ],
                   ),
                 )),
